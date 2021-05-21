@@ -1,10 +1,11 @@
 const path = require("path");
 const express = require("express");
 const hbs = require("hbs");
-const app = express();
 const geocode = require("./utils/geocode");
 const forecast = require("./utils/forecast");
 
+const app = express();
+const port = process.env.PORT || 3000;
 //define paths
 const publicDirectoryPath = path.join(__dirname, "../public");
 const viewsPath = path.join(__dirname, "../template/views");
@@ -95,8 +96,8 @@ app.get("*", (req, res) => {
   res.send("this is a 404 page");
 });
 
-app.listen(3000, () => {
-  console.log("the server is running in port 3000");
+app.listen(port, () => {
+  console.log("the server is running in port " + port);
 });
 //app.com
 //app.com/help
